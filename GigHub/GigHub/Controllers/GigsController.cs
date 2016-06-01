@@ -14,6 +14,7 @@ namespace GigHub.Controllers
             _context = new ApplicationDbContext();
         }
 
+        [Authorize]
         // GET: Gigs
         public ActionResult Create()
         {
