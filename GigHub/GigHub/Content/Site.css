@@ -37,8 +37,28 @@ textarea {
     color: #fff;
 }
 
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #b74f4f;
+    background-color: rgba(183, 79, 79, 0.54);
+}
+
+.dropdown-menu {
+    -webkit-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+
 body {
    font-size: 17px;
+}
+
+.navbar-brand {
+    font-weight: 700;
 }
 
 body,
