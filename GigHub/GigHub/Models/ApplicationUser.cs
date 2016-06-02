@@ -19,7 +19,7 @@ namespace GigHub.Models
 
         public ICollection<Following> Followees { get; set; }
 
-        public ICollection<UserNotifcation> UserNotifications { get; set; }
+        public ICollection<UserNotification> UserNotifications { get; set; }
 
         public ApplicationUser()
         {
@@ -27,7 +27,7 @@ namespace GigHub.Models
 
             Followees = new Collection<Following>();
 
-            UserNotifications = new Collection<UserNotifcation>();
+            UserNotifications = new Collection<UserNotification>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -40,12 +40,7 @@ namespace GigHub.Models
 
         public void Notify(Notification notification)
         {
-
-            var userNotification = new UserNotifcation
-            {
-                User = this,
-                Notification = notification
-            };
+            var userNotification = new UserNotification(this, notification);
 
             UserNotifications.Add(userNotification);
         }
