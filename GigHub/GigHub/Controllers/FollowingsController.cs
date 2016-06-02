@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Web.Http;
+using GigHub.Dtos;
 
 namespace GigHub.Controllers
 {
@@ -34,10 +35,5 @@ namespace GigHub.Controllers
 
             return Ok();
         }
-    }
-
-    public class FollowingDto
-    {
-        public string FolloweeId { get; set; }
     }
 }
