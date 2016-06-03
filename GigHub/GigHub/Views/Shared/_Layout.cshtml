@@ -40,7 +40,15 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script id="notifications-template" type="text/x-template">
-        Hello <%= name %> 
+        <ul>
+            <%
+            _.each(notifications, function(notification){
+                if (notification.type == 1) { %>
+                    <li><%= notification.gig.artist.name %> has canceled the gig at <%= notification.gig.venue %> venue at <%= notification.gig.dateTime %>.</li>
+                <% }
+            })
+            %>
+        </ul> 
     </script>
     <script>
         $(document).ready(function() {
@@ -55,8 +63,7 @@
                     title: "Notifications",
                     content: function () {
                         var compiled = _.template($("#notifications-template").html());
-                        var html = compiled({ name: "Mosh" });
-                        return html;
+                        return compiled({ notifications: notifications });
                     },
                     placement: "bottom"
                 });
